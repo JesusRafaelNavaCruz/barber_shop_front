@@ -4,7 +4,7 @@ export function NavLinks({
   className = "",
   onClick,
 }: {
-  className: string;
+  className?: string;
   onClick?: () => void;
 }) {
   const links = [
