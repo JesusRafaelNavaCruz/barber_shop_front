@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Banner() {
   return (
-    <section className='bg-surface-dark/50 py-20 border-t border-white/5' id='info'>
+    <section className='bg-black/80 dark:bg-surface-dark/50 py-20 border-t border-white/5' id='info'>
       <div className='mx-auto px-6 md:px-10 max-w-[1200px]'>
         <div className="bg-primary rounded-2xl p-12 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative">
           <div className='absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none'>
