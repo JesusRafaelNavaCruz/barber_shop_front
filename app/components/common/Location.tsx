@@ -4,7 +4,7 @@ import React from "react";
 export default function Location() {
   return (
     <section
-      className="bg-surface-dark/50 py-10 border-b border-white/5"
+      className="bg-black/80 dark:bg-surface-dark/50 py-10 border-b border-white/5"
       id="location"
     >
       <div className="mx-auto px-6 md:px-10 max-w-[1200px] flex flex-col lg:flex-row gap-12">

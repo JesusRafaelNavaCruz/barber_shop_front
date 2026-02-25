@@ -89,16 +89,10 @@ export default function Gallery() {
       id="gallery"
     >
       <div className="mx-auto max-w-[1200px]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
-        >
           <Title
             title="Nuestra galería"
             subtitle="Resultados que hablan por sí mismos"
           />
-        </motion.div>
 
         <motion.div
           variants={containerVariants}
