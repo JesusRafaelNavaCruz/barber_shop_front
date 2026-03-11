@@ -17,14 +17,14 @@ export default async function Services() {
 
   return (
     <section
-      className="mt-20 px-6 md:px-10 mx-auto max-w-[1200px]"
+      className="mt-12 sm:mt-16 md:mt-20 px-4 sm:px-6 md:px-10 lg:px-0 mx-auto max-w-full lg:max-w-[1200px]"
       id="services"
     >
       <Title
         title="Cortes con Ley"
         subtitle="Tradición y estilo moderno en cada detalle. Selecciona el servicio que mejor represente tu carácter."
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 md:mb-20">
         {services.map((service, index) => (
           <ServiceCard key={index} service={service} index={index} />
         ))}
