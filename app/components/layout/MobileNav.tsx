@@ -2,8 +2,9 @@
 import { useState } from "react";
 import { NavLinks } from "./NavLinks";
 import { Menu, X } from "lucide-react";
+import type { NavLink } from "@/types/navbar";
 
-export function MobileNav() {
+export function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -31,7 +32,7 @@ export function MobileNav() {
                 <X />
             </button>
             <nav className="flex flex-col gap-4">
-                <NavLinks className="text-white" onClick={toggleMenu} />
+                <NavLinks navLinks={navLinks} className="text-white" onClick={toggleMenu} />
             </nav>
         </div>
       </aside>

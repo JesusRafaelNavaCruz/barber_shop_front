@@ -2,48 +2,18 @@
 
 import Link from "next/link";
 import { useBooking } from "@/app/context/BookingContext";
+import type { NavLink } from "@/types/navbar";
 
 export function NavLinks({
+  navLinks,
   className = "",
   onClick,
 }: {
+  navLinks: NavLink[];
   className?: string;
   onClick?: () => void;
 }) {
   const { openBooking } = useBooking();
-
-  const links = [
-    {
-      label: "Inicio",
-      href: "#hero",
-      isSection: true,
-      isModal: false,
-    },
-    {
-      label: "Servicios",
-      href: "#services",
-      isSection: true,
-      isModal: false,
-    },
-    {
-      label: "Equipos",
-      href: "#staff",
-      isSection: true,
-      isModal: false,
-    },
-    {
-      label: "Galeria",
-      href: "#gallery",
-      isSection: true,
-      isModal: false,
-    },
-    {
-      label: "Reservar",
-      href: "#",
-      isSection: false,
-      isModal: true,
-    },
-  ];
 
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -69,15 +39,15 @@ export function NavLinks({
 
   return (
     <>
-      {links.map((link) => (
+      {navLinks.map((link) => (
         <Link
-          href={link.href}
-          key={link.label}
+          href={link.link}
+          key={link.id}
           onClick={(e) => {
             if (link.isModal) {
               handleModalClick(e);
             } else if (link.isSection) {
-              handleSectionClick(e, link.href);
+              handleSectionClick(e, link.link);
             } else {
               onClick?.();
             }

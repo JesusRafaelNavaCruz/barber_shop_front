@@ -1,10 +1,18 @@
 import { getSiteSetting } from "@/services/siteSettings";
+import { getNavbarLinks } from "@/services/navbar";
 import { MobileNav } from "./MobileNav";
 import Image from "next/image";
 import { DesktopNav } from "./DesktopNav";
 
 export default async function Header() {
   const siteSettings = await getSiteSetting();
+  let navbarData = null;
+
+  try {
+    navbarData = await getNavbarLinks();
+  } catch (error) {
+    console.error("Error fetching navbar data: ", error);
+  }
 
   return (
     <header
@@ -19,13 +27,13 @@ export default async function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between md:justify-center">
         {/* Mobile */}
         <div className="md:hidden flex items-center justify-between w-full">
-          <MobileNav />
-          {siteSettings?.seo?.ogImage && (
+          <MobileNav navLinks={navbarData?.navigationLinks || []} />
+          {siteSettings?.logo && (
             <Image
-              src={siteSettings?.seo?.ogImage?.url}
-              width="120"
-              height="120"
-              alt={siteSettings?.seo?.defaultTitle ?? "Bandoleros Barber Shop"}
+              src={siteSettings.logo.url || ""}
+              width={siteSettings.logo.width || 120}
+              height={siteSettings.logo.height || 120}
+              alt={siteSettings.logo.alt || siteSettings.siteName || "Logo"}
               className="h-8 mx-auto"
             />
           )}
@@ -33,9 +41,9 @@ export default async function Header() {
         </div>
         {/* Desktop */}
         <DesktopNav
-          logo={
-            siteSettings?.seo?.ogImage ? siteSettings?.seo?.ogImage?.url : ""
-          }
+          logo={siteSettings?.logo?.url || ""}
+          siteName={siteSettings?.siteName || ""}
+          navLinks={navbarData?.navigationLinks || []}
         />
       </div>
     </header>
