@@ -14,7 +14,6 @@ export default async function Staff() {
   }
 
   const staffs = staffData ? staffData : [];
-  console.log(staffData)
 
   return (
     <section
