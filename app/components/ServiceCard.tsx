@@ -22,7 +22,7 @@ export default function ServiceCard({
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
       layout={false}
-      className="group flex flex-col gap-4 sm:gap-6 rounded-lg sm:rounded-xl border border-white/10 bg-surface-dark p-6 sm:p-8 hover:border-primary/50 transition-all hover:scale-[1.02] duration-300 will-change-transform"
+      className="group flex flex-col gap-4 sm:gap-6 rounded-lg sm:rounded-xl border border-white/10 bg-surface-dark p-6  sm:p-8 hover:border-primary/50 transition-all hover:scale-[1.02] duration-300 will-change-transform"
     >
       <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors will-change-colors">
         <Scissors />

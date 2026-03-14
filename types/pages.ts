@@ -28,7 +28,7 @@ export interface HeroBlock {
   badge: string;
   title: string;
   highlightedText: string;
-  description: string;
+  description?: string;
   backgroundImage: ImageData;
   buttons: HeroBlockButtons;
   services: Services[];
@@ -38,6 +38,7 @@ export interface HeroBlock {
 export interface ServiceBlock {
   blockType: "service-block";
   title: string;
+  description?: string;
   subtitle: string;
   services: Services[];
   id: string;

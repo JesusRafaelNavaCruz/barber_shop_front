@@ -23,16 +23,17 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  try {
-    const page = await getPageBySlug("main-page");
+  let page;
+  let hasError = false;
 
-    return (
-      <div>
-        <PageBlockRenderer blocks={page.layout} />
-      </div>
-    );
+  try {
+    page = await getPageBySlug("main-page");
   } catch (error) {
     console.error("Error loading page:", error);
+    hasError = true;
+  }
+
+  if (hasError || !page) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-neutral-900">
         <div className="text-center">
@@ -46,4 +47,10 @@ export default async function Page() {
       </div>
     );
   }
+
+  return (
+    <div>
+      <PageBlockRenderer blocks={page.layout} />
+    </div>
+  );
 }

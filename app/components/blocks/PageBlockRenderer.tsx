@@ -1,5 +1,3 @@
-"use client";
-
 import { PageBlock } from "@/types/pages";
 import HeroBlockRenderer from "./HeroBlockRenderer";
 import ServicesBlocks from "./ServiceBlocks";
