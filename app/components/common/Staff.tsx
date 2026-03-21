@@ -27,7 +27,7 @@ export default async function Staff() {
             subtitle="Nuestros barberos no solo dominan la técnica, forjan tu identidad."
           />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">  
           {staffs.map((staff, index) => (
             <StaffCard key={index} staff={staff} index={index} />
           ))}

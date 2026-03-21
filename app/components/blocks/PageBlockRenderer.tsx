@@ -1,6 +1,7 @@
 import { PageBlock } from "@/types/pages";
 import HeroBlockRenderer from "./HeroBlockRenderer";
 import ServicesBlocks from "./ServiceBlocks";
+import StaffBlock from "./StaffBlock";
 
 interface PageBlockRendererProps {
   blocks: PageBlock[];
@@ -17,6 +18,9 @@ export default function PageBlockRenderer({ blocks }: PageBlockRendererProps) {
 
           case "service-block":
             return <ServicesBlocks key={`${block.blockType}-${index}`} block={block} />
+
+          case "staff-block":
+            return <StaffBlock key={`${block.blockType}-${index}`} block={block} />
           
           // Aquí irán más tipos de bloques en el futuro
           default:

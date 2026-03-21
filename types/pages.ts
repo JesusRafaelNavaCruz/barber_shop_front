@@ -1,4 +1,5 @@
 import { Services } from "./services";
+import { Staff } from "./staff";
 
 export interface ImageData {
   createdAt: string;
@@ -44,8 +45,16 @@ export interface ServiceBlock {
   id: string;
 }
 
+export interface StaffBlock {
+  blockType: "staff-block",
+  title: string;
+  subtitle: string;
+  staff: Staff[]
+  id: string;
+}
+
 // Union de todos los tipos de bloques posibles
-export type PageBlock = HeroBlock | ServiceBlock;
+export type PageBlock = HeroBlock | ServiceBlock | StaffBlock;
 
 export interface Page {
   createdAt: string;

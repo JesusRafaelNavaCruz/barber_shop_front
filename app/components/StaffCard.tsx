@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { Instagram, Twitter } from "lucide-react";
 import React from "react";
+import { SocialIcon } from "./SocialIcon";
 
 export default function StaffCard({
   staff,
@@ -35,7 +36,7 @@ export default function StaffCard({
               height={staff.photo.height}
               className="object-fill"
             />
-           )}
+          )}
           {/* Si no hay foto, mostrar placeholder */}
           {!staff?.photo?.url && (
             <div className="w-full h-full bg-surface-dark flex items-center justify-center">
@@ -44,7 +45,9 @@ export default function StaffCard({
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-80"></div>
           <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
-            <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold">{staff.name}</h3>
+            <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold">
+              {staff.name}
+            </h3>
             <p className="text-primary font-semibold text-sm tracking-widest uppercase">
               {staff.speciality}
             </p>
@@ -57,8 +60,20 @@ export default function StaffCard({
           {staff.bio}
         </p>
         <div className="flex gap-3 text-slate-500">
-          <Instagram />
-          <Twitter />
+          {staff.socials &&
+            staff.socials.map((social) => (
+              <a
+                key={social.id}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary "
+              >
+                <SocialIcon platform={social.platform} />
+              </a>
+            ))}
+          {/* <Instagram />
+          <Twitter /> */}
         </div>
       </div>
     </motion.div>

@@ -10,6 +10,12 @@ export interface Media {
   width?: number;
   height?: number;
 }
+
+export interface SocialNetwork {
+  id: string;
+  platform: string;
+  url: string;
+}
 export interface Staff {
   name: string;
   bio: string;
@@ -17,6 +23,7 @@ export interface Staff {
   photo?: Media;
   active?: boolean;
   services: Services;
+  socials: SocialNetwork[],
   updatedAt?: string;
   createdAt?: string;
 }
